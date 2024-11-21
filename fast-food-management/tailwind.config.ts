@@ -21,27 +21,16 @@ module.exports = {
     extend: {
       colors: {
         primary: {
-          100: "#617F67",
+          100: "#2E4CE8",
         },
-        dark: {
-          100: "#FFFFFF",
-          200: "#202020",
-          300: "#252525",
-          400: "#191919",
-        },
-        light: {
-          500: "#92898A",
-          600: "#E4DEE4",
-          700: "#FFFFFF",
-          800: "#F4F3F3",
-        },
-        "accent-blue": "#1DA1F2",
+        "text-color": "#0B272B",
         "border-color": "#D9D9D9",
-        "custom-green": "#bee7c5",
-        "light-red": "#F8CED0",
+        "light-bg": "#F0F0F0",
+        "custom-bg": "#F3F5FF",
+        "light-text": "#404F52",
         "light-blue": "#BCF0F6",
         "light-yellow": "#FFFEDE",
-        "inactive-background": "#C4C4C4",
+        "active-background": "#E8EBFE",
       },
       fontFamily: {
         inter: ["var(--font-inter)"],
