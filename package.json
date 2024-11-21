@@ -1,0 +1,8 @@
+{
+  "dependencies": {
+    "@tailwindcss/line-clamp": "^0.4.4",
+    "@tailwindcss/typography": "^0.5.15",
+    "react-datepicker": "^7.5.0",
+    "tailwindcss-animate": "^1.0.7"
+  }
+}

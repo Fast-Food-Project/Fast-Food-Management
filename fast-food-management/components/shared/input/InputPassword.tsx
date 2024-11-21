@@ -19,7 +19,7 @@ const InputPassword = ({
         />
         <Icon
           icon="fluent:eye-off-16-regular"
-          className={` text-2xl text-text-color`}
+          className={` text-2xl text-dark-500`}
         />
       </div>
     </div>

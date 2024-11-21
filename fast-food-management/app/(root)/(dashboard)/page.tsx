@@ -1,22 +1,23 @@
-//import InputEdit from "@/components/shared/input/InputEdit";
-//import InputDate from "@/components/shared/input/InputDate";
-import InputSelection from "@/components/shared/input/InputSelection";
-//import InputNumber from "@/components/shared/input/InputNumber";
-//import InputPassword from "@/components/shared/input/InputPassword";
+"use client";
+
+import ProductFrame from "@/components/shared/orther/ProductFrame";
 import React from "react";
 
-const page = () => {
-  const options = ["Option 1", "Option 2", "Option 3", "Option 4"];
+const ProductTestPage = () => {
+  // Sample product data
+  const productData = {
+    id: "1",
+    image: "/assets/images/product.png",
+    name: "Sample Product Sample Product",
+    price: "100,000",
+  };
 
   return (
-    <div>
-      <InputSelection
-        titleInput="Choose an option"
-        options={options}
-        width="w-1/2"
-      />
+    <div className="p-4 space-y-4">
+      <h1 className="text-2xl font-bold">Product Frame Test</h1>
+      <ProductFrame param={productData} />
     </div>
   );
 };
 
-export default page;
+export default ProductTestPage;
