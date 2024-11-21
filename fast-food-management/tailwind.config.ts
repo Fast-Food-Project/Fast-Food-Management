@@ -24,6 +24,7 @@ module.exports = {
           100: "#2E4CE8",
         },
         "text-dark-500": "#0B272B",
+        "text-dark-400": "#404F52",
         "border-color": "#D9D9D9",
         "light-bg": "#F0F0F0",
         "custom-bg": "#F3F5FF",

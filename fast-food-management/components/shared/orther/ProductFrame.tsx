@@ -27,7 +27,7 @@ const ProductFrame = ({ param }: { param: ProductProps }) => {
         {param.name}
       </p>
       {/* Price - Truncate if too long */}
-      <p className="font-semibold text-[14px] truncate overflow-hidden whitespace-nowrap">
+      <p className="font-semibold text-[14px] text-text-dark-400 truncate overflow-hidden whitespace-nowrap">
         {param.price} VND
       </p>
       <div className="flex justify-end items-center">
