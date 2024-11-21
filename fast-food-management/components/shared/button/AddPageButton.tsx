@@ -21,7 +21,7 @@ const AddPageButton: React.FC<AddPageButtonProps> = ({ onClick }) => {
       >
         <Icon
           icon="ic:round-add"
-          className="text-[14px] text-gray-700 text-white " // Biểu tượng filter
+          className="text-[14px]  text-white " // Biểu tượng filter
         />
         Add more
       </button>

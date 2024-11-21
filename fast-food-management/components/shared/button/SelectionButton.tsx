@@ -34,7 +34,7 @@ const SelectionButton: React.FC<SelectionProps> = ({
       <button
         onClick={toggleDropdown}
         className={classNames(
-          "flex items-center gap-[4px] text-text-color", // Button styling
+          "flex items-center gap-[4px] text-dark-500", // Button styling
           "py-2 px-4 rounded-lg" // Button shape
         )}
       >
