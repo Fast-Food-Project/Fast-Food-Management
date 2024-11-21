@@ -3,7 +3,7 @@
 import ProductFrame from "@/components/shared/orther/ProductFrame";
 import React from "react";
 
-const ProductTestPage = () => {
+const page = () => {
   // Sample product data
   const productData = {
     id: "1",
@@ -20,4 +20,4 @@ const ProductTestPage = () => {
   );
 };
 
-export default ProductTestPage;
+export default page;
