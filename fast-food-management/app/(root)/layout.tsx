@@ -18,8 +18,8 @@ const Layout = ({ children }: { children: React.ReactNode }) => {
         </header>
 
         {/* Content */}
-        <section className="flex-1 p-4">
-          <div className="mx-auto">{children}</div>
+        <section className="w-full h-full p-4">
+          <div className="w-full h-full">{children}</div>
         </section>
       </div>
     </main>
