@@ -1,22 +1,25 @@
-//import InputEdit from "@/components/shared/input/InputEdit";
-//import InputDate from "@/components/shared/input/InputDate";
-import InputSelection from "@/components/shared/input/InputSelection";
-//import InputNumber from "@/components/shared/input/InputNumber";
-//import InputPassword from "@/components/shared/input/InputPassword";
-import React from "react";
+"use client";
+import SelectionButton from "@/components/shared/button/SelectionButton";
+import React, { useState } from "react";
 
-const page = () => {
-  const options = ["Option 1", "Option 2", "Option 3", "Option 4"];
+const Page = () => {
+  const [selectedOption, setSelectedOption] = useState<string>("All");
+
+  const handleSelect = (selection: string) => {
+    setSelectedOption(selection); // Update selected option
+  };
 
   return (
-    <div>
-      <InputSelection
-        titleInput="Choose an option"
-        options={options}
-        width="w-1/2"
+    <div className="p-4">
+      <SelectionButton
+        selection_title={["All", "Option 1", "Option 2", "Option 3"]}
+        SetSelection={selectedOption}
+        onSelect={handleSelect} // Function to handle option selection
+        width="w-[125px]"
       />
+      <p className="mt-4">Selected: {selectedOption}</p>
     </div>
   );
 };
 
-export default page;
+export default Page;
