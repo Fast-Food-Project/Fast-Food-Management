@@ -37,6 +37,7 @@ module.exports = {
         "light-red": "#FFF0F0",
         "dark-red": "#EC221F",
         "active-background": "#E8EBFE",
+
         background: "hsl(var(--background))",
         foreground: "hsl(var(--foreground))",
         card: {

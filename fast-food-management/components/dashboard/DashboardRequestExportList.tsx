@@ -64,16 +64,18 @@ const DashboardRequestExportList = () => {
         <h3 className="text-base">{item.id}</h3>
       </td>
       <td className="hidden px-4 py-2 lg:table-cell">
-        <p className="text-base">{format(item.createAt, "PPP")}</p>
+        <p className="text-base text-text-dark-500">
+          {format(item.createAt, "PPP")}
+        </p>
       </td>
       <td className="hidden px-4 py-2 lg:table-cell">
-        <p className="text-base text-gray-500">{item.createBy}</p>
+        <p className="text-base text-text-dark-500">{item.createBy}</p>
       </td>
       <td className="hidden px-4 py-2 lg:table-cell">
-        <p className="text-base text-gray-500">{item.orderId}</p>
+        <p className="text-base text-text-dark-500">{item.orderId}</p>
       </td>
       <td className="hidden px-4 py-2 lg:table-cell">
-        <div className="text-base text-gray-500">
+        <div className="text-base text-text-dark-500">
           {item.status === 0 ? (
             <LabelStatus
               background="bg-light-red"
@@ -129,7 +131,7 @@ const DashboardRequestExportList = () => {
           <Table columns={columns} renderRow={renderRow} data={currentData} />
         </div>
         {/* PAGINATION */}
-        <div className=" mt-4 flex items-center justify-center p-4 text-sm text-gray-500 md:justify-between">
+        <div className=" mt-4 flex items-center justify-center p-4 text-sm text-text-dark-500 md:justify-between">
           <PaginationUI paginationUI={paginationUI} />
         </div>
       </div>

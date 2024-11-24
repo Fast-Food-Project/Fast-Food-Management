@@ -1,66 +1,84 @@
 "use client";
-import React, { useState, useRef } from "react";
+import React, { useState, useRef, useEffect } from "react";
 import classNames from "classnames";
 import { Icon } from "@iconify/react";
-import DatePicker from "react-datepicker"; // Import react-datepicker
-import "react-datepicker/dist/react-datepicker.css"; // Import CSS for react-datepicker
+import DatePicker from "react-datepicker";
+import "react-datepicker/dist/react-datepicker.css";
 
-// Typing the component props
 interface InputDateProps {
   titleInput: string;
   width: string;
+  value?: string; // Add value prop
+  onChange?: (date: string) => void; // Optional onChange prop to update parent component
 }
 
-const InputDate: React.FC<InputDateProps> = ({ titleInput, width }) => {
-  const [selectedDate, setSelectedDate] = useState<Date | null>(null); // State for the selected date
-  const [showCalendar, setShowCalendar] = useState(false); // State for showing the calendar
-  const calendarRef = useRef<HTMLDivElement | null>(null); // Reference for the calendar div
+const InputDate: React.FC<InputDateProps> = ({
+  titleInput,
+  width,
+  value,
+  onChange,
+}) => {
+  const [selectedDate, setSelectedDate] = useState<Date | null>(null);
+  const [showCalendar, setShowCalendar] = useState(false);
+  const calendarRef = useRef<HTMLDivElement | null>(null);
 
-  // Function to toggle calendar visibility
+  // Ensure that the client side handles the date after mounting
+  useEffect(() => {
+    if (value) {
+      setSelectedDate(new Date(value)); // Convert string value to Date object
+    }
+  }, [value]);
+
   const handleIconClick = () => {
-    setShowCalendar((prev) => !prev); // Toggle the calendar visibility
+    setShowCalendar((prev) => !prev); // Toggle calendar visibility
   };
 
-  // Function to close calendar if clicked outside
   const handleClickOutside = (e: MouseEvent) => {
     if (
       calendarRef.current &&
       !calendarRef.current.contains(e.target as Node)
     ) {
-      setShowCalendar(false); // Close the calendar
+      setShowCalendar(false); // Close calendar when clicked outside
     }
   };
 
-  // Hook to listen for outside clicks
-  React.useEffect(() => {
+  useEffect(() => {
     document.addEventListener("mousedown", handleClickOutside);
     return () => {
       document.removeEventListener("mousedown", handleClickOutside);
     };
   }, []);
 
+  const handleDateChange = (date: Date) => {
+    setSelectedDate(date);
+    if (onChange) {
+      onChange(date.toLocaleDateString()); // Call onChange if provided
+    }
+  };
+
   return (
     <div className={classNames("flex flex-col gap-[8px]", width)}>
       <p>{titleInput}:</p>
       <div className="relative">
-        {/* Input field */}
+        {/* Displaying selected date in the input */}
         <input
           type="text"
           value={selectedDate ? selectedDate.toLocaleDateString() : ""}
           placeholder="Select a date"
           className="h-[34px] w-full border border-gray-300 rounded-lg px-3 text-gray-700 bg-white focus:outline-none"
-          onClick={handleIconClick} // Open calendar on input click
+          onClick={handleIconClick}
+          readOnly // Set to readonly since DatePicker is handling input changes
+          aria-label="Select a date"
         />
-
-        {/* Icon to trigger the calendar */}
         <span
-          onClick={handleIconClick} // Toggle calendar visibility on icon click
+          onClick={handleIconClick}
           className="absolute right-3 top-1/2 -translate-y-1/2 text-gray-500 cursor-pointer"
+          aria-label="Open calendar"
         >
           <Icon icon="uil:calender" className="text-2xl text-dark-500" />
         </span>
 
-        {/* Date picker calendar, shown when showCalendar is true */}
+        {/* Calendar dropdown */}
         {showCalendar && (
           <div
             ref={calendarRef}
@@ -68,9 +86,10 @@ const InputDate: React.FC<InputDateProps> = ({ titleInput, width }) => {
           >
             <DatePicker
               selected={selectedDate}
-              onChange={(date: Date) => setSelectedDate(date)} // Update selected date
-              inline // Display the calendar inline below the input
-              dateFormat="dd/MM/yyyy" // Date format to be displayed
+              onChange={handleDateChange} // DatePicker's onChange updates the selectedDate
+              inline
+              dateFormat="dd/MM/yyyy"
+              aria-label="Date picker"
             />
           </div>
         )}

@@ -8,6 +8,7 @@ type SelectionProps = {
   SetSelection: string; // Current selected option
   onSelect: (selection: string) => void; // Function to handle selection change
   width: string;
+  dropdownWidth: string;
 };
 
 const SelectionButton: React.FC<SelectionProps> = ({
@@ -15,6 +16,7 @@ const SelectionButton: React.FC<SelectionProps> = ({
   SetSelection,
   onSelect,
   width,
+  dropdownWidth,
 }) => {
   const [isOpen, setIsOpen] = useState(false); // Track whether dropdown is open
 
@@ -55,7 +57,7 @@ const SelectionButton: React.FC<SelectionProps> = ({
               onClick={() => onSelect(title)} // Handle option selection
               className={classNames(
                 "block text-[14px] rounded-lg  py-2 px-6 text-left text-text-dark-400 hover:bg-gray-200",
-                width, // Option styling
+                dropdownWidth, // Option styling
                 {
                   "bg-primary-100 text-white hover:bg-primary-100":
                     SetSelection === title, // Highlight selected option

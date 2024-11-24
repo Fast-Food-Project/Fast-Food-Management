@@ -29,35 +29,44 @@ const InputSelection: React.FC<InputSelectionProps> = ({
   };
 
   return (
-    <div className={classNames("flex flex-col gap-[8px]", width)}>
-      <p>{titleInput}:</p>
+    <div
+      className={classNames(
+        "flex flex-col gap-[8px] text-text-dark-500",
+        width
+      )}
+    >
+      <p className="text-text-dark-400">{titleInput}:</p>
       <div className="relative">
         {/* Input field */}
         <input
           type="text"
           value={selectedOption || ""}
           placeholder="Select an option"
-          className="h-[34px] w-full border border-gray-300 rounded-lg px-3 text-gray-700 bg-white focus:outline-none cursor-pointer"
+          className="h-[34px] w-full border border-gray-300 rounded-lg px-3 bg-white focus:outline-none cursor-pointer"
           onClick={handleDropdownClick} // Mở dropdown khi nhấp vào input
-          readOnly // Đảm bảo input chỉ hiển thị giá trị đã chọn
+          readOnly
         />
 
         {/* Icon để mở dropdown */}
         <span
           onClick={handleDropdownClick} // Thêm sự kiện nhấn vào icon để toggle dropdown
-          className="absolute right-3 top-1/2 -translate-y-1/2 text-gray-500 cursor-pointer"
+          className="absolute right-3 top-1/2 -translate-y-1/2 text-text-dark-500 cursor-pointer"
         >
           <Icon icon="uil:angle-down" className="text-2xl text-dark-500" />
         </span>
 
         {/* Dropdown hiển thị khi showOptions là true */}
         {showOptions && (
-          <div className="absolute right-0 top-full mt-2 w-full rounded-lg border border-gray-300 bg-white shadow-lg z-50">
+          <div
+            className={classNames(
+              "absolute right-0 top-full mt-2 rounded-lg border border-gray-300 bg-white shadow-lg z-50 w-fit items-center"
+            )}
+          >
             <ul>
               {options.map((option, index) => (
                 <li
                   key={index}
-                  className="px-4 py-2 text-gray-700 hover:bg-gray-200 cursor-pointer"
+                  className="px-6 py-1 text-gray-700 hover:bg-primary-100 hover:text-white rounded-lg cursor-pointer"
                   onClick={() => handleOptionSelect(option)} // Chọn giá trị từ dropdown
                 >
                   {option}
