@@ -25,8 +25,8 @@ const SelectionButton: React.FC<SelectionProps> = ({
   return (
     <div
       className={classNames(
-        "relative flex justify-center items-center drop-shadow-lg", // Center content and add shadow
-        "border-[0.5px] rounded-[8px]", // Default border width and radius
+        "relative h-[38px] flex justify-center items-center drop-shadow-lg", // Center content and add shadow
+        "border-[0.5px] rounded-[8px] z-50", // Default border width and radius
         width
       )}
     >
@@ -35,18 +35,18 @@ const SelectionButton: React.FC<SelectionProps> = ({
         onClick={toggleDropdown}
         className={classNames(
           "flex items-center gap-[4px] text-dark-500", // Button styling
-          "py-2 px-4 rounded-lg" // Button shape
+          "py-2 px-4 rounded-lg text-[16px]" // Button shape
         )}
       >
         {/* Filter icon */}
-        <p>{SetSelection}</p>
+        <p className="">{SetSelection}</p>
         <Icon icon="ri:arrow-drop-down-line" className="text-[18px]" />{" "}
       </button>
 
       {/* Dropdown options */}
       {isOpen && (
         <div
-          className="absolute top-[100%] left-12 mt-2 bg-white border border-gray-300 rounded-lg shadow-lg z-10"
+          className="absolute top-[100%] left-0 mt-2 bg-white border border-gray-300 rounded-lg shadow-lg z-10"
           onClick={() => setIsOpen(false)} // Close dropdown when clicking outside
         >
           {selection_title.map((title) => (
@@ -54,7 +54,8 @@ const SelectionButton: React.FC<SelectionProps> = ({
               key={title}
               onClick={() => onSelect(title)} // Handle option selection
               className={classNames(
-                "block text-[14px] w-[125px] py-2 px-6 text-left text-gray-700 hover:bg-gray-200", // Option styling
+                "block text-[14px] rounded-lg  py-2 px-6 text-left text-text-dark-400 hover:bg-gray-200",
+                width, // Option styling
                 {
                   "bg-primary-100 text-white hover:bg-primary-100":
                     SetSelection === title, // Highlight selected option

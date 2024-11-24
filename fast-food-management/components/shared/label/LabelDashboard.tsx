@@ -8,6 +8,7 @@ type LabelAnalyticsProps = {
   title: string; // Title text
   value: number; // Numeric value
   width: string;
+  type: number; // 0: VND, 1: number only, 2: percentage
 };
 
 const LabelDashboard: React.FC<LabelAnalyticsProps> = ({
@@ -15,7 +16,22 @@ const LabelDashboard: React.FC<LabelAnalyticsProps> = ({
   title,
   value,
   width,
+  type,
 }) => {
+  // Xử lý hiển thị giá trị dựa trên `type`
+  const formattedValue = () => {
+    switch (type) {
+      case 0: // Hiển thị VND
+        return `${value.toLocaleString("en-US")} VND`;
+      case 1: // Chỉ hiển thị số
+        return value.toLocaleString("en-US");
+      case 2: // Hiển thị phần trăm
+        return `${value}%`;
+      default:
+        return value.toString();
+    }
+  };
+
   return (
     <div
       className={classNames(
@@ -36,12 +52,8 @@ const LabelDashboard: React.FC<LabelAnalyticsProps> = ({
 
       {/* Value and Status */}
       <div className="mt-4">
-        <p className="text-[24px] font-semibold">
-          {value.toLocaleString("en-US")} VND {/* Explicit locale */}
-        </p>
+        <p className="text-[24px] font-semibold">{formattedValue()}</p>
       </div>
-
-      {/* Time Period */}
     </div>
   );
 };
