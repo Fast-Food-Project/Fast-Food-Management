@@ -31,7 +31,7 @@ const Page = () => {
         <DashboardCardList />
         <Chart />
       </div>
-      <DashboardRequestExportList />
+      <DashboardRequestExportList haveHeader={true} />
     </div>
   );
 };

@@ -10,7 +10,7 @@ type AddPageButtonProps = {
 const AddPageButton: React.FC<AddPageButtonProps> = ({ onClick }) => {
   return (
     <div
-      className="h-[51px] w-[115px] border border-gray-300 flex justify-center items-center rounded-lg bg-primary-100"
+      className="h-[38px] w-[115px] border border-gray-300 flex justify-center items-center rounded-lg bg-primary-100"
       style={{
         borderWidth: "0.5px", // Border thickness
       }}

@@ -10,6 +10,7 @@ export interface SidebarLink {
   route: string;
   label: string;
   icon: string;
+  children?: SidebarLink[]; // Optional property for nested links
 }
 
 export interface Job {

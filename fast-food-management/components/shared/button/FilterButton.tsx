@@ -26,7 +26,7 @@ const FilterButton = ({ status_title, SetFilter }: FilterProps) => {
     <div className="relative">
       {/* Nút chính hiển thị giá trị hiện tại */}
       <button
-        className="h-[51px] w-[87px] border border-gray-300 flex justify-center items-center rounded-lg bg-white gap-2"
+        className="h-[38px] w-[87px] border border-gray-300 flex justify-center items-center rounded-lg bg-white gap-2"
         style={{
           borderWidth: "0.5px", // Độ dày đường viền
         }}
@@ -49,14 +49,14 @@ const FilterButton = ({ status_title, SetFilter }: FilterProps) => {
 
       {/* Dropdown các tùy chọn */}
       {isDropdownOpen && (
-        <ul className="absolute top-full left-12 w-[100px] mt-1 bg-white border border-gray-300 rounded-lg shadow-md z-10">
+        <ul className="absolute top-full  w-[100px] mt-1 bg-white border border-gray-300 rounded-lg shadow-md z-10">
           {status_title.map((status, index) => (
             <li
               key={index}
               className={classNames(
-                "cursor-pointer py-2 text-[14px] px-4 text-center text-gray-700 hover:bg-gray-200 rounded-md flex items-center gap-2",
+                "cursor-pointer py-2 text-[14px] px-4 text-center text-text-dark-400 hover:bg-primary-100 hover:text-white rounded-md flex items-center gap-2",
                 {
-                  "bg-blue-500 text-white": selectedFilter === status, // Nếu được chọn, đổi màu
+                  "bg-primary-100 text-white": selectedFilter === status, // Nếu được chọn, đổi màu
                 }
               )}
               onClick={() => handleFilterClick(status)} // Cập nhật filter khi chọn

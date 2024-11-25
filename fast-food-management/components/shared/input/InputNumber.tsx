@@ -10,7 +10,7 @@ const InputNumber = ({
 }) => {
   return (
     <div className={classNames("flex flex-col gap-[8px]", width)}>
-      <p>{titleInput}:</p>
+      <p className="text-text-dark-400">{titleInput}:</p>
       <input
         type="number"
         style={{

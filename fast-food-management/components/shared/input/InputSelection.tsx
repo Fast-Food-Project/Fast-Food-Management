@@ -1,64 +1,100 @@
-"use client";
-import React, { useState } from "react";
+import React, { useState, useEffect, useRef } from "react";
 import classNames from "classnames";
 import { Icon } from "@iconify/react";
 
 interface InputSelectionProps {
   titleInput: string;
-  options: string[]; // Các tùy chọn có sẵn cho người dùng chọn
+  options: string[]; // Options for selection
   width: string;
+  value?: string | null; // Current value selected
+  onChange?: (value: string) => void; // Callback for handling value change
 }
 
 const InputSelection: React.FC<InputSelectionProps> = ({
   titleInput,
   options,
   width,
+  value,
+  onChange,
 }) => {
-  const [selectedOption, setSelectedOption] = useState<string | null>(null); // Trạng thái lưu lựa chọn
-  const [showOptions, setShowOptions] = useState(false); // Trạng thái để hiển thị danh sách lựa chọn
+  const [selectedOption, setSelectedOption] = useState<string | null>(
+    value || null
+  );
+  const [showOptions, setShowOptions] = useState(false);
+  const dropdownRef = useRef<HTMLDivElement | null>(null);
+  const inputRef = useRef<HTMLInputElement | null>(null);
 
-  // Hàm để toggle hiển thị dropdown
+  // Update selectedOption when value changes externally
+  useEffect(() => {
+    if (value !== undefined) {
+      setSelectedOption(value);
+    }
+  }, [value]);
+
+  // Close dropdown when clicking outside
+  useEffect(() => {
+    const handleClickOutside = (event: MouseEvent) => {
+      if (
+        dropdownRef.current &&
+        !dropdownRef.current.contains(event.target as Node) &&
+        inputRef.current &&
+        !inputRef.current.contains(event.target as Node)
+      ) {
+        setShowOptions(false);
+      }
+    };
+    document.addEventListener("mousedown", handleClickOutside);
+    return () => document.removeEventListener("mousedown", handleClickOutside);
+  }, []);
+
   const handleDropdownClick = () => {
-    setShowOptions((prev) => !prev); // Đảo trạng thái hiển thị của dropdown
+    setShowOptions((prev) => !prev);
   };
 
-  // Hàm chọn giá trị từ dropdown
   const handleOptionSelect = (option: string) => {
-    setSelectedOption(option); // Cập nhật giá trị đã chọn
-    setShowOptions(false); // Đóng dropdown sau khi chọn
+    setSelectedOption(option);
+    onChange?.(option);
+    setShowOptions(false);
   };
 
   return (
-    <div className={classNames("flex flex-col gap-[8px]", width)}>
-      <p>{titleInput}:</p>
+    <div
+      className={classNames(
+        "flex flex-col gap-[8px] text-text-dark-500",
+        width
+      )}
+    >
+      <p className="text-text-dark-400">{titleInput}:</p>
       <div className="relative">
-        {/* Input field */}
         <input
+          ref={inputRef}
           type="text"
           value={selectedOption || ""}
           placeholder="Select an option"
-          className="h-[34px] w-full border border-gray-300 rounded-lg px-3 text-gray-700 bg-white focus:outline-none cursor-pointer"
-          onClick={handleDropdownClick} // Mở dropdown khi nhấp vào input
-          readOnly // Đảm bảo input chỉ hiển thị giá trị đã chọn
+          className="h-[34px] w-full border border-gray-300 rounded-lg px-3 bg-white focus:outline-none cursor-pointer"
+          onClick={handleDropdownClick}
+          readOnly
         />
-
-        {/* Icon để mở dropdown */}
         <span
-          onClick={handleDropdownClick} // Thêm sự kiện nhấn vào icon để toggle dropdown
-          className="absolute right-3 top-1/2 -translate-y-1/2 text-gray-500 cursor-pointer"
+          onClick={handleDropdownClick}
+          className="absolute right-3 top-1/2 -translate-y-1/2 text-text-dark-500 cursor-pointer"
         >
           <Icon icon="uil:angle-down" className="text-2xl text-dark-500" />
         </span>
 
-        {/* Dropdown hiển thị khi showOptions là true */}
         {showOptions && (
-          <div className="absolute right-0 top-full mt-2 w-full rounded-lg border border-gray-300 bg-white shadow-lg z-50">
+          <div
+            ref={dropdownRef}
+            className={classNames(
+              "absolute right-0 top-full mt-2 rounded-lg border border-gray-300 bg-white shadow-lg z-50 w-fit max-h-60 overflow-auto"
+            )}
+          >
             <ul>
               {options.map((option, index) => (
                 <li
                   key={index}
-                  className="px-4 py-2 text-gray-700 hover:bg-gray-200 cursor-pointer"
-                  onClick={() => handleOptionSelect(option)} // Chọn giá trị từ dropdown
+                  className="px-6 py-1 text-gray-700 hover:bg-primary-100 hover:text-white rounded-lg cursor-pointer"
+                  onClick={() => handleOptionSelect(option)}
                 >
                   {option}
                 </li>
