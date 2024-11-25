@@ -1,12 +1,12 @@
 "use client";
-import EditImportList from "@/components/inventory/EditImportList";
-import EditInformation from "@/components/inventory/EditInformation";
+import EditImportList from "@/components/inventory/import/EditImportList";
+import EditInformation from "@/components/inventory/import/EditInformation";
 import Title from "@/components/shared/orther/Title";
 import { Icon } from "@iconify/react"; // Ensure the correct import
 import { useRouter } from "next/navigation";
 import React from "react";
 
-const page = () => {
+const Page = () => {
   const router = useRouter(); // Initialize the router
 
   const handleCloseClick = () => {
@@ -29,4 +29,4 @@ const page = () => {
   );
 };
 
-export default page;
+export default Page;

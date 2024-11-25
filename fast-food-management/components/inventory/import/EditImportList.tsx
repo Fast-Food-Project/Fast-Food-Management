@@ -1,14 +1,14 @@
 "use client";
 import React, { useEffect, useState } from "react";
-import SearchBar from "../shared/orther/SearchBar";
-import FilterButton from "../shared/button/FilterButton";
+import SearchBar from "../../shared/orther/SearchBar";
+import FilterButton from "../../shared/button/FilterButton";
 import { PaginationProps } from "@/types/pagination";
-import Table from "../shared/orther/Table";
-import PaginationUI from "../shared/orther/Pagination";
-import LabelStatus from "../shared/label/LabelStatus";
+import Table from "../../shared/orther/Table";
+import PaginationUI from "../../shared/orther/Pagination";
+import LabelStatus from "../../shared/label/LabelStatus";
 import { InventoryListData } from "@/constants/data";
 import SelectionProductCard from "./SelectionProductCard";
-import ButtonFunction from "../shared/button/ButtonFunction";
+import ButtonFunction from "../../shared/button/ButtonFunction";
 import { useRouter } from "next/navigation";
 
 type UserTable = {

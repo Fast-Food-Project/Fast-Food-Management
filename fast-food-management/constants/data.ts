@@ -6,6 +6,8 @@ export const RequestExportList = [
     orderId: "001",
     status: 0,
     quantity: 20,
+    staffId: "S101", // Staff ID
+    staffName: "John", // Staff Name
   },
   {
     id: "002",
@@ -14,6 +16,8 @@ export const RequestExportList = [
     orderId: "002",
     status: 1,
     quantity: 30,
+    staffId: "S102", // Staff ID
+    staffName: "Jane", // Staff Name
   },
   {
     id: "003",
@@ -22,6 +26,8 @@ export const RequestExportList = [
     orderId: "003",
     status: 2,
     quantity: 40,
+    staffId: "S103", // Staff ID
+    staffName: "Alice", // Staff Name
   },
   {
     id: "004",
@@ -30,6 +36,8 @@ export const RequestExportList = [
     orderId: "004",
     status: 0,
     quantity: 20,
+    staffId: "S104", // Staff ID
+    staffName: "Bob", // Staff Name
   },
   {
     id: "005",
@@ -38,6 +46,8 @@ export const RequestExportList = [
     orderId: "005",
     status: 1,
     quantity: 30,
+    staffId: "S105", // Staff ID
+    staffName: "Emma", // Staff Name
   },
   {
     id: "006",
@@ -46,6 +56,8 @@ export const RequestExportList = [
     orderId: "006",
     status: 2,
     quantity: 20,
+    staffId: "S101", // Staff ID
+    staffName: "John", // Staff Name
   },
   {
     id: "007",
@@ -54,6 +66,8 @@ export const RequestExportList = [
     orderId: "007",
     status: 0,
     quantity: 20,
+    staffId: "S102", // Staff ID
+    staffName: "Jane", // Staff Name
   },
   {
     id: "008",
@@ -62,6 +76,8 @@ export const RequestExportList = [
     orderId: "008",
     status: 1,
     quantity: 30,
+    staffId: "S103", // Staff ID
+    staffName: "Alice", // Staff Name
   },
   {
     id: "009",
@@ -70,6 +86,8 @@ export const RequestExportList = [
     orderId: "009",
     status: 2,
     quantity: 20,
+    staffId: "S104", // Staff ID
+    staffName: "Bob", // Staff Name
   },
   {
     id: "010",
@@ -78,6 +96,8 @@ export const RequestExportList = [
     orderId: "010",
     status: 0,
     quantity: 20,
+    staffId: "S105", // Staff ID
+    staffName: "Emma", // Staff Name
   },
   {
     id: "011",
@@ -86,6 +106,8 @@ export const RequestExportList = [
     orderId: "011",
     status: 1,
     quantity: 30,
+    staffId: "S101", // Staff ID
+    staffName: "John", // Staff Name
   },
   {
     id: "012",
@@ -94,6 +116,8 @@ export const RequestExportList = [
     orderId: "012",
     status: 2,
     quantity: 20,
+    staffId: "S102", // Staff ID
+    staffName: "Jane", // Staff Name
   },
 ];
 

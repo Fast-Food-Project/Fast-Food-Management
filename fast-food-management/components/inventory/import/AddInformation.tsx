@@ -1,7 +1,7 @@
 "use client";
 import React, { useState } from "react";
-import InputEdit from "../shared/input/InputEdit";
-import InputDate from "../shared/input/InputDate";
+import InputEdit from "../../shared/input/InputEdit";
+import InputDate from "../../shared/input/InputDate";
 
 type UserTable = {
   id: string;

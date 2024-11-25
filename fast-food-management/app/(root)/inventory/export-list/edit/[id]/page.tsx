@@ -1,20 +1,22 @@
 "use client";
-import DetailImport from "@/components/inventory/import/DetailImport";
+import EditExportInformation from "@/components/inventory/export/EditExportInformation";
+import EditImportList from "@/components/inventory/import/EditImportList";
 import Title from "@/components/shared/orther/Title";
-import { Icon } from "@iconify/react"; // Ensure the correct import
 import { useRouter } from "next/navigation";
 import React from "react";
+import { Icon } from "@iconify/react"; // Ensure the correct import
 
 const Page = () => {
+  // Renamed from 'page' to 'Page'
   const router = useRouter(); // Initialize the router
 
   const handleCloseClick = () => {
-    router.back(); // Navigate back to the previous Page
+    router.back(); // Navigate back to the previous page
   };
 
   return (
     <div className="w-full h-full flex flex-col gap-4 pt-2">
-      <Title title="Detail Import Item">
+      <Title title="Edit Export Item">
         <div onClick={handleCloseClick}>
           <Icon
             icon="material-symbols:close"
@@ -22,9 +24,10 @@ const Page = () => {
           />
         </div>
       </Title>
-      <DetailImport />
+      <EditExportInformation />
+      <EditImportList nameAction="Save" />
     </div>
   );
 };
 
-export default Page;
+export default Page; // Exported as 'Page' now

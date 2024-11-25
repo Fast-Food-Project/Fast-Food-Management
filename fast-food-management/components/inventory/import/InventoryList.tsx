@@ -1,18 +1,18 @@
 "use client";
 import React, { useEffect, useState } from "react";
-import SearchBar from "../shared/orther/SearchBar";
-import FilterButton from "../shared/button/FilterButton";
-import AddPageButton from "../shared/button/AddPageButton";
+import SearchBar from "../../shared/orther/SearchBar";
+import FilterButton from "../../shared/button/FilterButton";
+import AddPageButton from "../../shared/button/AddPageButton";
 import { InventoryListData } from "@/constants/data";
 import { PaginationProps } from "@/types/pagination";
-import Table from "../shared/orther/Table";
-import PaginationUI from "../shared/orther/Pagination";
-import LabelStatus from "../shared/label/LabelStatus";
-import Overlay from "../shared/orther/Overlay";
-import TitleSession from "../shared/orther/TitleSession";
-import InputEdit from "../shared/input/InputEdit";
-import InputSelection from "../shared/input/InputSelection";
-import ButtonFunction from "../shared/button/ButtonFunction";
+import Table from "../../shared/orther/Table";
+import PaginationUI from "../../shared/orther/Pagination";
+import LabelStatus from "../../shared/label/LabelStatus";
+import Overlay from "../../shared/orther/Overlay";
+import TitleSession from "../../shared/orther/TitleSession";
+import InputEdit from "../../shared/input/InputEdit";
+import InputSelection from "../../shared/input/InputSelection";
+import ButtonFunction from "../../shared/button/ButtonFunction";
 import Link from "next/link";
 
 type UserTable = {

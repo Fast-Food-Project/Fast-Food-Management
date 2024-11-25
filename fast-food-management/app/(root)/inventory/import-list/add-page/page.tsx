@@ -1,17 +1,16 @@
 "use client";
-import AddInformation from "@/components/inventory/AddInformation";
-import EditImportList from "@/components/inventory/EditImportList";
-import EditInformation from "@/components/inventory/EditInformation";
+import AddInformation from "@/components/inventory/import/AddInformation";
+import EditImportList from "@/components/inventory/import/EditImportList";
 import Title from "@/components/shared/orther/Title";
 import { Icon } from "@iconify/react"; // Ensure the correct import
 import { useRouter } from "next/navigation";
 import React from "react";
 
-const page = () => {
+const Page = () => {
   const router = useRouter(); // Initialize the router
 
   const handleCloseClick = () => {
-    router.back(); // Navigate back to the previous page
+    router.back(); // Navigate back to the previous Page
   };
 
   return (
@@ -30,4 +29,4 @@ const page = () => {
   );
 };
 
-export default page;
+export default Page;

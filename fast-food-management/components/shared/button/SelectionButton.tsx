@@ -8,7 +8,7 @@ type SelectionProps = {
   SetSelection: string; // Current selected option
   onSelect: (selection: string) => void; // Function to handle selection change
   width: string;
-  dropdownWidth: string;
+  dropdownWidth?: string;
 };
 
 const SelectionButton: React.FC<SelectionProps> = ({

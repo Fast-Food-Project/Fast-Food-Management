@@ -20,7 +20,7 @@ const Overlay: React.FC<OverlayProps> = ({
 
   return (
     <div
-      className="fixed inset-0 bg-gray-900 bg-opacity-50 z-50 flex justify-center items-center"
+      className="fixed inset-0 bg-gray-900 bg-opacity-50 z-50 flex justify-center items-center p-4"
       onClick={onClose}
     >
       <div

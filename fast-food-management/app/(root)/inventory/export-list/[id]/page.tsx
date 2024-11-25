@@ -1,5 +1,5 @@
 "use client";
-import DetailImport from "@/components/inventory/import/DetailImport";
+import DetailExport from "@/components/inventory/export/DetailExport";
 import Title from "@/components/shared/orther/Title";
 import { Icon } from "@iconify/react"; // Ensure the correct import
 import { useRouter } from "next/navigation";
@@ -22,7 +22,7 @@ const Page = () => {
           />
         </div>
       </Title>
-      <DetailImport />
+      <DetailExport />
     </div>
   );
 };

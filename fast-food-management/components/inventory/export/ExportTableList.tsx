@@ -1,20 +1,22 @@
 "use client";
 import React, { useEffect, useState } from "react";
-import SearchBar from "../shared/orther/SearchBar";
-import FilterButton from "../shared/button/FilterButton";
-import AddPageButton from "../shared/button/AddPageButton";
+import SearchBar from "../../shared/orther/SearchBar";
+import FilterButton from "../../shared/button/FilterButton";
+import AddPageButton from "../../shared/button/AddPageButton";
 import { RequestExportList } from "@/constants/data";
 import { PaginationProps } from "@/types/pagination";
-import Table from "../shared/orther/Table";
-import PaginationUI from "../shared/orther/Pagination";
+import Table from "../../shared/orther/Table";
+import PaginationUI from "../../shared/orther/Pagination";
 import { Icon } from "@iconify/react";
 import { format } from "date-fns";
 import { useRouter } from "next/navigation";
+import Link from "next/link";
 
 type UserTable = {
   id: string;
   createAt: Date;
   createBy: string;
+  staffName: string;
   quantity: number;
 };
 
@@ -22,11 +24,12 @@ const columns = [
   { header: "ID", accessor: "id" },
   { header: "Created At", accessor: "createAt" },
   { header: "Created By", accessor: "createBy" },
+  { header: "Staff Name", accessor: "staffName" },
   { header: "Quantity", accessor: "quantity" },
   { header: "Action", accessor: "action" },
 ];
 
-const ImportList = () => {
+const ExportTableList = ({ pageEndPoint }: { pageEndPoint: string }) => {
   const router = useRouter();
 
   const [currentPage, setCurrentPage] = useState(1);
@@ -53,17 +56,30 @@ const ImportList = () => {
   const filterStatus = ["Date", "Name", "Id"];
 
   const handleEdit = (id: string) => {
-    router.push(`/inventory/import-list/edit/${id}`);
+    router.push(`/inventory/${pageEndPoint}/edit/${id}`);
   };
 
   const handleAdd = () => {
-    router.push(`/inventory/import-list/add-page`);
+    router.push(`/inventory/${pageEndPoint}/add-page`);
   };
 
   const handleDelete = (id: string) => {
+    // Hiển thị hộp thoại xác nhận
+    const confirmDelete = window.confirm("Confirm delete this item?");
+
+    if (!confirmDelete) {
+      // Nếu người dùng chọn 'Hủy', thoát hàm
+      return;
+    }
+
+    // Tiến hành xóa phần tử
     const updatedList = exportList.filter((item) => item.id !== id);
+
+    // Cập nhật lại danh sách
     setExportList(updatedList);
   };
+
+  const handleExport = () => {};
 
   const handleSearch = (searchTerm: string) => {
     const filteredData = RequestExportList.filter(
@@ -98,7 +114,9 @@ const ImportList = () => {
   const renderRow = (item: UserTable) => (
     <tr key={item.id} className="my-4 border-t border-gray-300 text-sm">
       <td className="px-4 py-2">
-        <h3 className="text-base">{item.id}</h3>
+        <Link href={`/inventory/export-list/${item.id}`}>
+          <h3 className="text-base">{item.id}</h3>
+        </Link>
       </td>
       <td className="hidden px-4 py-2 lg:table-cell">
         <p className="text-base text-text-dark-500">
@@ -107,6 +125,9 @@ const ImportList = () => {
       </td>
       <td className="hidden px-4 py-2 lg:table-cell">
         <p className="text-base text-text-dark-500">{item.createBy}</p>
+      </td>
+      <td className="hidden px-4 py-2 lg:table-cell">
+        <p className="text-base text-text-dark-500">{item.staffName}</p>
       </td>
       <td className="hidden px-4 py-2 lg:table-cell">
         <p className="text-base text-text-dark-500">{item.quantity}</p>
@@ -122,6 +143,11 @@ const ImportList = () => {
             icon="gg:trash"
             className="text-[18px] hover:cursor-pointer"
             onClick={() => handleDelete(item.id)} // Pass the id to handleDelete
+          />
+          <Icon
+            icon="hugeicons:file-export"
+            className="text-[18px] hover:cursor-pointer"
+            onClick={() => handleExport()} // Pass the id to handleDelete
           />
         </div>
       </td>
@@ -145,4 +171,4 @@ const ImportList = () => {
   );
 };
 
-export default ImportList;
+export default ExportTableList;

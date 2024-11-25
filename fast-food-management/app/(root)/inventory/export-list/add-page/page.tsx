@@ -1,5 +1,6 @@
 "use client";
-import DetailImport from "@/components/inventory/import/DetailImport";
+import AddExportInformation from "@/components/inventory/export/AddExportInformation";
+import EditImportList from "@/components/inventory/import/EditImportList";
 import Title from "@/components/shared/orther/Title";
 import { Icon } from "@iconify/react"; // Ensure the correct import
 import { useRouter } from "next/navigation";
@@ -14,7 +15,7 @@ const Page = () => {
 
   return (
     <div className="w-full h-full flex flex-col gap-4 pt-2">
-      <Title title="Detail Import Item">
+      <Title title="Add Export Item">
         <div onClick={handleCloseClick}>
           <Icon
             icon="material-symbols:close"
@@ -22,7 +23,8 @@ const Page = () => {
           />
         </div>
       </Title>
-      <DetailImport />
+      <AddExportInformation />
+      <EditImportList nameAction="Create" />
     </div>
   );
 };

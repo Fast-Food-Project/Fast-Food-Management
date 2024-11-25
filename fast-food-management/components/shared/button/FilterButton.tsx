@@ -54,7 +54,7 @@ const FilterButton = ({ status_title, SetFilter }: FilterProps) => {
             <li
               key={index}
               className={classNames(
-                "cursor-pointer py-2 text-[14px] px-4 text-center text-text-dark-400 hover:bg-gray-200 rounded-md flex items-center gap-2",
+                "cursor-pointer py-2 text-[14px] px-4 text-center text-text-dark-400 hover:bg-primary-100 hover:text-white rounded-md flex items-center gap-2",
                 {
                   "bg-primary-100 text-white": selectedFilter === status, // Nếu được chọn, đổi màu
                 }

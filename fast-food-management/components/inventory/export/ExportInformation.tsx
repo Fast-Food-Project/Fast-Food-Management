@@ -1,8 +1,7 @@
 "use client";
-import { useParams } from "next/navigation";
 import React, { useState, useEffect } from "react";
-import InputEdit from "../shared/input/InputEdit";
-import InputDate from "../shared/input/InputDate";
+import InputEdit from "../../shared/input/InputEdit";
+import InputDate from "../../shared/input/InputDate";
 import { RequestExportList } from "@/constants/data";
 
 type UserTable = {
@@ -10,9 +9,11 @@ type UserTable = {
   createAt: Date;
   createBy: string;
   quantity: number;
+  staffId: string; // Chỉ một staffId, không phải mảng nữa
+  staffName: string;
 };
 
-const ImportInformation = ({ itemId }: { itemId: string }) => {
+const ExportInformation = ({ itemId }: { itemId: string }) => {
   const [item, setItem] = useState<UserTable | null>(null);
 
   useEffect(() => {
@@ -60,8 +61,24 @@ const ImportInformation = ({ itemId }: { itemId: string }) => {
         value={item ? item.createBy : ""}
         onChange={handleChange}
       />
+
+      <InputEdit
+        titleInput="Created by"
+        width="w-[536px]"
+        placeholder="Enter Creator"
+        value={item ? item.staffId : ""}
+        onChange={handleChange}
+      />
+
+      <InputEdit
+        titleInput="Created by"
+        width="w-[536px]"
+        placeholder="Enter Creator"
+        value={item ? item.staffName : ""}
+        onChange={handleChange}
+      />
     </div>
   );
 };
 
-export default ImportInformation;
+export default ExportInformation;

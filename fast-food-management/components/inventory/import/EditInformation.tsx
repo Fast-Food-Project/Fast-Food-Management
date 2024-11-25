@@ -2,8 +2,8 @@
 import { RequestExportList } from "@/constants/data";
 import { useParams } from "next/navigation";
 import React, { useState, useEffect } from "react";
-import InputEdit from "../shared/input/InputEdit";
-import InputDate from "../shared/input/InputDate";
+import InputEdit from "../../shared/input/InputEdit";
+import InputDate from "../../shared/input/InputDate";
 
 type UserTable = {
   id: string;
@@ -50,7 +50,7 @@ const EditInformation = () => {
   };
 
   // Format the date to ISO string, or return empty if invalid
-  const formatDate = (date: any): string => {
+  const formatDate = (date: Date | string): string => {
     const parsedDate = new Date(date);
     return parsedDate instanceof Date && !isNaN(parsedDate.getTime()) // Check for a valid date
       ? parsedDate.toISOString()

@@ -1,4 +1,4 @@
-import InventoryList from "@/components/inventory/InventoryList";
+import InventoryList from "@/components/inventory/import/InventoryList";
 import Title from "@/components/shared/orther/Title";
 import React from "react";
 
