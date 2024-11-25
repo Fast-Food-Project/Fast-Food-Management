@@ -18,6 +18,7 @@ const AddPageButton: React.FC<AddPageButtonProps> = ({ onClick }) => {
       <button
         className="h-full w-full flex text-[14px] gap-1 justify-center items-center text-white rounded-lg"
         onClick={onClick} // Using the onClick prop passed from the parent
+        fdprocessedid="htc1k"
       >
         <Icon
           icon="ic:round-add"

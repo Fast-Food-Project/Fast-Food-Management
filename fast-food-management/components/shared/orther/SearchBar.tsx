@@ -25,6 +25,7 @@ const SearchBar = ({
         value={searchQuery}
         onChange={handleSearch}
         className="text-dark100_light500 w-full bg-transparent p-2 text-[16px] outline-none"
+        fdprocessedid="eizsa"
       />
     </div>
   );
