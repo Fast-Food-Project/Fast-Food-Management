@@ -5,7 +5,7 @@ import classNames from "classnames";
 
 type ButtonFunctionProps = {
   event: () => void; // onClick event handler
-  title: string; // Button title text
+  title?: string; // Button title text
   icon?: string; // Icon to display with the button
   text_color?: string; // Text color
   border_color?: string; // Border color
