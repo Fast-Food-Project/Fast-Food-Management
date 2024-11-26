@@ -15,6 +15,7 @@ type ButtonFunctionProps = {
   height?: string;
   px?: string;
   py?: string;
+  text?: string;
 };
 
 const ButtonFunction: React.FC<ButtonFunctionProps> = ({
@@ -29,6 +30,7 @@ const ButtonFunction: React.FC<ButtonFunctionProps> = ({
   height = "h-9",
   px = "px-[12px]",
   py = "py-[8px]",
+  text = "text-[16px]",
 }) => {
   return (
     <div
@@ -49,6 +51,7 @@ const ButtonFunction: React.FC<ButtonFunctionProps> = ({
       <button
         className={classNames(
           "flex items-center gap-[4px] rounded-lg",
+          text,
           text_color // Apply dynamic text color class
         )}
         onClick={event}

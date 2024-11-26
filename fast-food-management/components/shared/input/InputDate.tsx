@@ -10,6 +10,7 @@ interface InputDateProps {
   width: string;
   value?: string; // Add value prop
   onChange?: (date: string) => void; // Optional onChange prop to update parent component
+  position?: 0 | 1; // Vị trí lịch: 0 (bên dưới), 1 (bên trên)
 }
 
 const InputDate: React.FC<InputDateProps> = ({
@@ -17,6 +18,7 @@ const InputDate: React.FC<InputDateProps> = ({
   width,
   value,
   onChange,
+  position = 0,
 }) => {
   const [selectedDate, setSelectedDate] = useState<Date | null>(null);
   const [showCalendar, setShowCalendar] = useState(false);
@@ -82,7 +84,13 @@ const InputDate: React.FC<InputDateProps> = ({
         {showCalendar && (
           <div
             ref={calendarRef}
-            className="absolute right-2 top-full mt-4 w-[240px] h-[236px] rounded-lg border border-gray-300 shadow-lg z-50"
+            className={classNames(
+              "absolute w-[240px] h-[236px] rounded-lg border border-gray-300 shadow-lg z-50",
+              {
+                "top-full mt-4": position === 0, // Hiển thị bên dưới
+                "bottom-full mb-4": position === 1, // Hiển thị bên trên
+              }
+            )}
           >
             <DatePicker
               selected={selectedDate}
