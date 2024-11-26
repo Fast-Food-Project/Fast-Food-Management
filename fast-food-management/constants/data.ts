@@ -966,3 +966,39 @@ export const ProductData = [
     ],
   },
 ];
+
+interface UserProps {
+  id: string;
+  fullname: string;
+  dob: Date; // Correct type for dob
+  email: string;
+  phoneNumber: string; // Match the property name in UserData
+  position: string;
+  address: string;
+  city: string;
+  cardId: string;
+  country: string;
+  acountName: string;
+  avatar: string;
+  status: string;
+  password: string;
+  enrolledDate: Date; // Correct the typo
+}
+
+export const UserData: UserProps = {
+  id: "001",
+  fullname: "Juni Vu",
+  dob: new Date("2024-09-22"),
+  email: "abc@gmail.com",
+  phoneNumber: "01234555678",
+  avatar: "/assets/images/ava.png",
+  position: "Manager",
+  address: "1/111A Cau Xeo, Tan Son Nhi, Tan Phu",
+  city: "Ho Chi Minh",
+  cardId: "01234555678",
+  status: "Active",
+  country: "Viet Nam",
+  acountName: "Juni Vu",
+  password: "0123456789",
+  enrolledDate: new Date("2024-09-22"),
+};
