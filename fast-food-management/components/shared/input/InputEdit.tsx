@@ -33,6 +33,7 @@ const InputEdit = ({
         value={value} // Allow dynamic value binding
         onChange={onChange} // Allow handling value changes
         placeholder={placeholder} // Optional placeholder
+        fdprocessedid="dznu2"
       />
     </div>
   );

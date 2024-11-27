@@ -39,13 +39,6 @@ const DetailStore: React.FC<EditStoreProps> = ({
     }
   }, [selectedStore]);
 
-  const handleSave = () => {
-    if (updatedItem) {
-      // Here you would save the updated item, typically sending to an API or context
-      console.log("Saved product: ", updatedItem);
-    }
-  };
-
   return (
     <>
       {isDetailStoreOverlayOpen && selectedStore && (

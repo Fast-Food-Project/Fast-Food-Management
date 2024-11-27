@@ -71,6 +71,7 @@ const InputDate: React.FC<InputDateProps> = ({
           onClick={handleIconClick}
           readOnly // Set to readonly since DatePicker is handling input changes
           aria-label="Select a date"
+          fdprocessedid="73fttm"
         />
         <span
           onClick={handleIconClick}
@@ -87,7 +88,7 @@ const InputDate: React.FC<InputDateProps> = ({
             className={classNames(
               "absolute w-[240px] h-[236px] rounded-lg border border-gray-300 shadow-lg z-50",
               {
-                "top-full mt-4": position === 0, // Hiển thị bên dưới
+                "top-full mt-4 ml-72": position === 0, // Hiển thị bên dưới
                 "bottom-full mb-4": position === 1, // Hiển thị bên trên
               }
             )}
