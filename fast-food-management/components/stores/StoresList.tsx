@@ -71,6 +71,7 @@ const StoresList = () => {
   const [isEditStoreOverlayOpen, setIsEditStoreOverlayOpen] = useState(false);
   const [isAddStoreOverlayOpen, setIsAddStoreOverlayOpen] = useState(false);
   const [selectedStore, setSelectedStore] = useState<StoreTable | null>(null);
+
   const handleAdd = () => {
     setIsAddStoreOverlayOpen(!isAddStoreOverlayOpen);
   };

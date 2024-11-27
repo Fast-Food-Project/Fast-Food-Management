@@ -162,6 +162,7 @@ const EditStore: React.FC<EditStoreProps> = ({
                     }));
                   }}
                 />
+
                 <InputSelection
                   width="w-full"
                   titleInput="City"
@@ -175,6 +176,7 @@ const EditStore: React.FC<EditStoreProps> = ({
                     }));
                   }}
                 />
+
                 <InputSelection
                   width="w-full"
                   titleInput="District"

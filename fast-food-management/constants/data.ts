@@ -1145,6 +1145,7 @@ export const StoresData = [
     accountName: "storeJ@gmail.com",
   },
 ];
+
 export const OrderFormData = [
   {
     id: "001",
@@ -1282,5 +1283,214 @@ export const OrderFormData = [
     ],
     quantity: 3,
     paymentMethod: 0,
+  },
+];
+
+interface DetailImport {
+  name: string; // Tên sản phẩm
+  level: number; // Số lượng nhập
+  unit: string; // Đơn vị (Pieces, Kgs, etc.)
+  unitPrice: number; // Giá mỗi đơn vị
+}
+
+interface Invoice {
+  id: string; // Mã hóa đơn
+  createAt: Date; // Ngày tạo hóa đơn
+  supplier: string; // Nhà cung cấp
+  total: number; // Tổng số tiền
+  phone: string; // Số điện thoại liên hệ
+  location: string; // Địa chỉ
+  detailImport: DetailImport[]; // Chi tiết nhập hàng
+  createBy: string; // Tên nhân viên tạo hóa đơn
+  orderId: string; // Mã đơn hàng liên quan
+  storeName: string; // Tên cửa hàng
+  status: string; // Trạng thái (0: mới, 1: xử lý, 2: hoàn tất)
+  storeId: string; // Mã cửa hàng
+  staffId: "S101" | "S102" | "S103" | "S104" | "S105"; // Mã nhân viên
+  typeOfProblem: string; // Loại vấn đề gặp phải
+}
+
+export const InvoiceData: Invoice[] = [
+  {
+    id: "001",
+    createAt: new Date("2024-09-24"),
+    supplier: "Nessan",
+    total: 600000,
+    phone: "0123456789",
+    location: "1/111A Cau Xeo, Tan Son Nhi, Tan Phu, TPHCM",
+    detailImport: [
+      { name: "Hot Dog", level: 5, unit: "Pieces", unitPrice: 30000 },
+      { name: "Hamburger", level: 3, unit: "Pieces", unitPrice: 100000 },
+    ],
+    createBy: "John",
+    orderId: "001",
+    storeName: "Store A",
+    status: "Pending",
+    storeId: "001",
+    staffId: "S101",
+    typeOfProblem: "Labor issues",
+  },
+  {
+    id: "002",
+    createAt: new Date("2024-09-25"),
+    supplier: "ABC Foods",
+    total: 750000,
+    phone: "0987654321",
+    location: "45 Hoang Dieu, District 4, HCMC",
+    detailImport: [
+      { name: "Pizza", level: 2, unit: "Boxes", unitPrice: 250000 },
+      { name: "Chicken Wings", level: 5, unit: "Pieces", unitPrice: 50000 },
+    ],
+    createBy: "Jane",
+    orderId: "002",
+    storeName: "Store B",
+    status: "Rejected",
+    storeId: "002",
+    staffId: "S102",
+    typeOfProblem: "Delivery delay",
+  },
+  {
+    id: "003",
+    createAt: new Date("2024-09-26"),
+    supplier: "Fresh Market",
+    total: 450000,
+    phone: "0932112233",
+    location: "234 Ly Thuong Kiet, District 10, HCMC",
+    detailImport: [
+      { name: "Fresh Milk", level: 10, unit: "Bottles", unitPrice: 45000 },
+    ],
+    createBy: "Alice",
+    orderId: "003",
+    storeName: "Store C",
+    status: "Resolved",
+    storeId: "003",
+    staffId: "S103",
+    typeOfProblem: "Expired goods",
+  },
+  {
+    id: "004",
+    createAt: new Date("2024-09-27"),
+    supplier: "Green Farm",
+    total: 1200000,
+    phone: "0998877665",
+    location: "56 Nguyen Van Linh, District 7, HCMC",
+    detailImport: [
+      { name: "Organic Eggs", level: 20, unit: "Cartons", unitPrice: 60000 },
+      { name: "Fresh Vegetables", level: 10, unit: "Boxes", unitPrice: 80000 },
+    ],
+    createBy: "Bob",
+    orderId: "004",
+    storeName: "Store D",
+    status: "Pending",
+    storeId: "004",
+    staffId: "S104",
+    typeOfProblem: "Incorrect items",
+  },
+  {
+    id: "005",
+    createAt: new Date("2024-09-28"),
+    supplier: "Seafood World",
+    total: 2000000,
+    phone: "0909988776",
+    location: "12 Tran Phu, District 5, HCMC",
+    detailImport: [
+      { name: "Salmon", level: 5, unit: "Kgs", unitPrice: 400000 },
+      { name: "Shrimp", level: 10, unit: "Kgs", unitPrice: 150000 },
+    ],
+    createBy: "Emma",
+    orderId: "005",
+    storeName: "Store E",
+    status: "Rejected",
+    storeId: "005",
+    staffId: "S105",
+    typeOfProblem: "Quality issues",
+  },
+  {
+    id: "006",
+    createAt: new Date("2024-09-29"),
+    supplier: "Daily Groceries",
+    total: 850000,
+    phone: "0911223344",
+    location: "78 Le Van Sy, District 3, HCMC",
+    detailImport: [{ name: "Rice", level: 10, unit: "Bags", unitPrice: 85000 }],
+    createBy: "John",
+    orderId: "006",
+    storeName: "Store F",
+    status: "Resolved",
+    storeId: "006",
+    staffId: "S101",
+    typeOfProblem: "Late delivery",
+  },
+  {
+    id: "007",
+    createAt: new Date("2024-09-30"),
+    supplier: "Beverage Hub",
+    total: 1300000,
+    phone: "0909988776",
+    location: "23 Nguyen Tri Phuong, District 10, HCMC",
+    detailImport: [
+      { name: "Soda", level: 30, unit: "Cases", unitPrice: 30000 },
+      { name: "Juice", level: 20, unit: "Bottles", unitPrice: 50000 },
+    ],
+    createBy: "Jane",
+    orderId: "007",
+    storeName: "Store G",
+    status: "Pending",
+    storeId: "007",
+    staffId: "S102",
+    typeOfProblem: "Stocking issues",
+  },
+  {
+    id: "008",
+    createAt: new Date("2024-10-01"),
+    supplier: "Bakery Supplies",
+    total: 300000,
+    phone: "0988877665",
+    location: "98 Pham Van Bach, Tan Binh, HCMC",
+    detailImport: [{ name: "Flour", level: 5, unit: "Bags", unitPrice: 60000 }],
+    createBy: "Alice",
+    orderId: "008",
+    storeName: "Store H",
+    status: "Rejected",
+    storeId: "008",
+    staffId: "S103",
+    typeOfProblem: "Damage during transit",
+  },
+  {
+    id: "009",
+    createAt: new Date("2024-10-02"),
+    supplier: "Meat Lovers",
+    total: 1100000,
+    phone: "0923344556",
+    location: "34 Nguyen Hue, District 1, HCMC",
+    detailImport: [
+      { name: "Beef", level: 10, unit: "Kgs", unitPrice: 100000 },
+      { name: "Chicken", level: 20, unit: "Kgs", unitPrice: 30000 },
+    ],
+    createBy: "Bob",
+    orderId: "009",
+    storeName: "Store I",
+    status: "Resolved",
+    storeId: "009",
+    staffId: "S104",
+    typeOfProblem: "Shortage of goods",
+  },
+  {
+    id: "010",
+    createAt: new Date("2024-10-03"),
+    supplier: "Dairy Delight",
+    total: 500000,
+    phone: "0916677889",
+    location: "15 Bui Vien, District 1, HCMC",
+    detailImport: [
+      { name: "Cheese", level: 10, unit: "Blocks", unitPrice: 50000 },
+    ],
+    createBy: "Emma",
+    orderId: "010",
+    storeName: "Store J",
+    status: "Pending",
+    storeId: "010",
+    staffId: "S105",
+    typeOfProblem: "Payment issues",
   },
 ];
