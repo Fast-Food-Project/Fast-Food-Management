@@ -55,6 +55,7 @@ const ButtonFunction: React.FC<ButtonFunctionProps> = ({
           text_color // Apply dynamic text color class
         )}
         onClick={event}
+        fdprocessedid="lo8jwf"
       >
         {/* Conditionally render icon if it's provided */}
         {icon && <Icon icon={icon} className="text-[18px]" />}
